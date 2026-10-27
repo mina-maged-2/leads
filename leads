@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egypt-Wide B2B Plastic Packaging Master Lead Portal (184 Accounts)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .custom-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
+    .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Top Header -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30 shadow-md">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-lg shadow-inner">EG</div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">Egypt-Wide B2B Plastic Packaging Lead Portal</h1>
+          <p class="text-xs text-slate-400">184 Verified Medium-to-Large Enterprises Across 8 Regional Hubs &amp; 9 Packaging Lines</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <button id="btn-reset" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition">
+          Reset All Filters
+        </button>
+        <button id="btn-export" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow transition flex items-center gap-1.5">
+          <span>Export Filtered Excel (CSV)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-[1600px] w-full mx-auto px-4 sm:px-6 py-6 flex-grow space-y-5">
+
+    <!-- Dynamic KPI Strip -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-2.5">
+      <div class="bg-slate-900 text-white rounded-xl p-3 shadow-sm flex flex-col justify-between">
+        <span class="text-[10px] uppercase tracking-wider font-semibold text-blue-400">Matching Leads</span>
+        <div class="text-2xl font-bold mt-1" id="kpi-matching">184</div>
+        <span class="text-[10px] text-slate-400">of 184 Total Accounts</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-pink-600">Courier Bags</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p0">0</div>
+        <span class="text-[10px] text-slate-500">3PL &amp; E-Commerce</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-indigo-600">PE Heavy Sacks</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p1">0</div>
+        <span class="text-[10px] text-slate-500">25–50kg Bulk/FFS</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-amber-600">T-Shirt &amp; Rolls</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p2">0</div>
+        <span class="text-[10px] text-slate-500">Retail &amp; Produce</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-cyan-600">Frozen Bags</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p3">0</div>
+        <span class="text-[10px] text-slate-500">IQF &amp; Poultry</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-orange-600">Rice &amp; Pasta</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p4">0</div>
+        <span class="text-[10px] text-slate-500">VFFS Dry Staples</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-blue-600">Laminated</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p5">0</div>
+        <span class="text-[10px] text-slate-500">Barrier Pouches</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-teal-600">PP Food Trays</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p6">0</div>
+        <span class="text-[10px] text-slate-500">Tubs &amp; Hot Meals</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-emerald-600">PET Containers</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p7">0</div>
+        <span class="text-[10px] text-slate-500">Punnets &amp; Domes</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+        <span class="text-[10px] uppercase font-bold text-purple-600">Foam Trays</span>
+        <div class="text-xl font-bold text-slate-900 mt-1" id="kpi-p8">0</div>
+        <span class="text-[10px] text-slate-500">EPS Butchery</span>
+      </div>
+    </section>
+
+    <!-- Custom Filter Control Panel -->
+    <section class="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Custom Lead Filters</h2>
+        <span class="text-xs text-slate-500">Combine location, sector, contact type, and multi-product filters below</span>
+      </div>
+
+      <!-- Row 1: Search, Region, City, Sector, Contact Channel -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <!-- Keyword Search -->
+        <div class="lg:col-span-2">
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Keyword Search (Company, Zone, Phone, Email)</label>
+          <input type="text" id="filter-search" placeholder="e.g. Amazon, Koki, 10th of Ramadan, @jtexpress-eg.com..." class="w-full text-xs rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" />
+        </div>
+
+        <!-- Region / Governorate Hub -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Region / Governorate Hub</label>
+          <select id="filter-region" class="w-full text-xs rounded-lg border border-slate-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <option value="ALL">All 8 Regions across Egypt (184)</option>
+            <option value="1. Cairo Governorate">1. Cairo Governorate (92)</option>
+            <option value="2. Giza Governorate">2. Giza Governorate (36)</option>
+            <option value="3. 10th of Ramadan & Sharqia">3. 10th of Ramadan &amp; Sharqia (11)</option>
+            <option value="4. Obour, Badr & Qalyubia">4. Obour, Badr &amp; Qalyubia (12)</option>
+            <option value="5. Alexandria & Borg El Arab">5. Alexandria &amp; Borg El Arab (16)</option>
+            <option value="6. Nile Delta Governorates">6. Nile Delta Governorates (7)</option>
+            <option value="7. Suez Canal & Damietta">7. Suez Canal &amp; Damietta (7)</option>
+            <option value="8. Fayoum & Upper Egypt">8. Fayoum &amp; Upper Egypt (3)</option>
+          </select>
+        </div>
+
+        <!-- Primary Sector -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Industry Vertical</label>
+          <select id="filter-sector" class="w-full text-xs rounded-lg border border-slate-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <option value="ALL">All Industry Verticals</option>
+            <option value="E-Commerce & Courier">E-Commerce, Courier &amp; 3PL</option>
+            <option value="Supermarkets & Retail">Supermarkets &amp; Hypermarkets</option>
+            <option value="Retail, Apparel & Pharmacy">Pharmacies, Apparel &amp; Electronics</option>
+            <option value="Poultry, Meat & Seafood">Poultry, Meat &amp; Seafood Processing</option>
+            <option value="Dairy & Cheese">Dairy, Cheese &amp; Egg Processing</option>
+            <option value="Flour, Sugar, Rice & Pasta">Flour, Sugar, Rice &amp; Pasta Mills</option>
+            <option value="Snacks, Confectionery & Dry Food">Snacks, Confectionery, Coffee &amp; Dry Food</option>
+            <option value="Bakery & Patisserie">Bakery, Patisserie &amp; Dessert Chains</option>
+            <option value="QSR, Restaurants & Catering">QSR, Casual Dining &amp; Catering</option>
+            <option value="IQF Frozen & Agri Export">IQF Frozen &amp; Fresh Produce Exporters</option>
+            <option value="Fertilizers, Salt & Chemicals">Fertilizers, Salt, Detergents &amp; Minerals</option>
+            <option value="HoReCa & B2B Distributors">HoReCa &amp; B2B Wholesale Distributors</option>
+          </select>
+        </div>
+
+        <!-- Contact Type -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Verification Filter</label>
+          <select id="filter-contact" class="w-full text-xs rounded-lg border border-slate-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <option value="ALL">All Contacts (184)</option>
+            <option value="EMAIL">Has Direct Email (@)</option>
+            <option value="HOTLINE">Has 5-Digit Short Hotline</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Row 2: Product Line Checkboxes & Match Mode -->
+      <div class="pt-3 border-t border-slate-100 space-y-2.5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-800">Filter by Packaging Product Interest:</span>
+            <span class="text-[11px] text-slate-500">(Select one or more product lines to filter accounts)</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 cursor-pointer">
+              <input type="radio" name="match-mode" value="ANY" checked class="text-blue-600 focus:ring-blue-500" />
+              <span>Match <b>ANY</b> Selected Product</span>
+            </label>
+            <label class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 cursor-pointer">
+              <input type="radio" name="match-mode" value="ALL" class="text-blue-600 focus:ring-blue-500" />
+              <span>Match <b>ALL</b> Selected Products</span>
+            </label>
+            <button id="btn-clear-products" class="text-xs text-blue-600 hover:underline font-medium ml-2">Clear Product Selection</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-2" id="product-checkbox-grid">
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-pink-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="0" class="prod-chk rounded text-pink-600 focus:ring-pink-500" />
+            <span class="font-semibold text-slate-700">Courier Bags</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-indigo-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="1" class="prod-chk rounded text-indigo-600 focus:ring-indigo-500" />
+            <span class="font-semibold text-slate-700">PE Heavy Sacks</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-amber-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="2" class="prod-chk rounded text-amber-600 focus:ring-amber-500" />
+            <span class="font-semibold text-slate-700">T-Shirt &amp; Rolls</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-cyan-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="3" class="prod-chk rounded text-cyan-600 focus:ring-cyan-500" />
+            <span class="font-semibold text-slate-700">Frozen Bags</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-orange-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="4" class="prod-chk rounded text-orange-600 focus:ring-orange-500" />
+            <span class="font-semibold text-slate-700">Rice &amp; Pasta</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-blue-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="5" class="prod-chk rounded text-blue-600 focus:ring-blue-500" />
+            <span class="font-semibold text-slate-700">Laminated Bags</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-teal-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="6" class="prod-chk rounded text-teal-600 focus:ring-teal-500" />
+            <span class="font-semibold text-slate-700">PP Food Trays</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-emerald-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="7" class="prod-chk rounded text-emerald-600 focus:ring-emerald-500" />
+            <span class="font-semibold text-slate-700">PET Containers</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-purple-50/50 cursor-pointer transition text-xs">
+            <input type="checkbox" value="8" class="prod-chk rounded text-purple-600 focus:ring-purple-500" />
+            <span class="font-semibold text-slate-700">Foam Trays</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Table -->
+    <section class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="overflow-x-auto custom-scroll">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead class="bg-slate-900 text-slate-200 uppercase text-[10px] tracking-wider sticky top-0">
+            <tr>
+              <th class="py-3 px-2.5 text-center">#</th>
+              <th class="py-3 px-3 min-w-[145px]">City / Region</th>
+              <th class="py-3 px-3 min-w-[200px]">Company Name</th>
+              <th class="py-3 px-3 min-w-[180px]">District / Industrial Zone</th>
+              <th class="py-3 px-3 min-w-[155px]">Primary Sector</th>
+              <th class="py-3 px-3 min-w-[140px]">Phone / Hotline</th>
+              <th class="py-3 px-3 min-w-[190px]">Email / Contact Channel</th>
+              <th class="py-3 px-1.5 text-center" title="Courier Bags">Courier</th>
+              <th class="py-3 px-1.5 text-center" title="Heavy-Duty PE Sacks">PE Sacks</th>
+              <th class="py-3 px-1.5 text-center" title="T-Shirt & Roll Bags">T-Shirt</th>
+              <th class="py-3 px-1.5 text-center" title="Frozen Food Bags">Frozen</th>
+              <th class="py-3 px-1.5 text-center" title="Rice & Pasta Packaging">Rice/Pasta</th>
+              <th class="py-3 px-1.5 text-center" title="Laminated Bags">Laminated</th>
+              <th class="py-3 px-1.5 text-center" title="PP Food Trays">PP Tray</th>
+              <th class="py-3 px-1.5 text-center" title="PET Containers">PET</th>
+              <th class="py-3 px-1.5 text-center" title="Foam Trays">Foam</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody" class="divide-y divide-slate-200"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Account Modal -->
+  <div id="lead-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-start justify-between border-b border-slate-100 pb-3">
+        <div>
+          <span id="m-region" class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-blue-100 text-blue-800"></span>
+          <h3 id="m-name" class="text-lg font-bold text-slate-900 mt-1"></h3>
+          <p id="m-sector" class="text-xs text-slate-500"></p>
+        </div>
+        <button id="m-close" class="text-slate-400 hover:text-slate-700 text-lg font-bold px-2">&times;</button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">City &amp; Address</span>
+          <p id="m-address" class="font-semibold text-slate-800 mt-1"></p>
+        </div>
+        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">Phone &amp; Email</span>
+          <p id="m-phone" class="font-mono font-bold text-blue-700 mt-1"></p>
+          <p id="m-email" class="font-mono text-slate-700 mt-0.5 break-all"></p>
+        </div>
+      </div>
+      <div>
+        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-2">Target Packaging Products Required</span>
+        <div id="m-products" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PRODUCT_NAMES = [
+      "Courier Bags", "Heavy-Duty PE Sacks", "T-Shirt & Roll Bags",
+      "Frozen Food Bags", "Rice & Pasta Packaging", "Laminated Bags",
+      "PP Food Trays", "PET Containers", "Foam Trays"
+    ];
+
+    const PRODUCT_BADGE_COLORS = [
+      "bg-pink-100 text-pink-800 border-pink-300",
+      "bg-indigo-100 text-indigo-800 border-indigo-300",
+      "bg-amber-100 text-amber-800 border-amber-300",
+      "bg-cyan-100 text-cyan-800 border-cyan-300",
+      "bg-orange-100 text-orange-800 border-orange-300",
+      "bg-blue-100 text-blue-800 border-blue-300",
+      "bg-teal-100 text-teal-800 border-teal-300",
+      "bg-emerald-100 text-emerald-800 border-emerald-300",
+      "bg-purple-100 text-purple-800 border-purple-300"
+    ];
+
+    // Schema: [regionHub, city, name, address, sectorGroup, sectorDesc, phone, email, [c, s, t, f, r, l, pp, pet, fm]]
+    const RAW_LEADS = [
+      // REGION 1: CAIRO GOVERNORATE (92)
+      ["1. Cairo Governorate","Cairo","Amazon Egypt (Souq.com LLC)","New Cairo (CS Hub) / Oraby, Azbakeya, Cairo","E-Commerce & Courier","E-Commerce Marketplace","08000262966 / 19932 / +20 127 539 7654","@amazon.com (ICQA / Fulfillment Ops)",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Jumia Egypt LLC","Bldg 272/273 North Teseen St., New Cairo & Suez Rd. WH","E-Commerce & Courier","E-Commerce Marketplace","19586 / +20 2 2519 9129 / 01019876655","jumia.egypt@jumia.com.eg / @jumia.com.eg",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","DHL Express Egypt","Cairo Int'l Airport Cargo Village, Heliopolis & Maadi","E-Commerce & Courier","Express Courier & 3PL","16345 / +20 2 2594 3200","Portal (dhl.com/eg-en)",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","FedEx Egypt (Egypt Express)","Plot 2, Block 1258W, Masaken Sheraton, Heliopolis","E-Commerce & Courier","Express Courier & Freight","19985 / 0800 006 0373 / +20 8000008040","info@egyptexpress.com.eg / Retail@egyptexpress.com.eg",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Bosta Technology LLC","Bldg 13A, Group 17, Degla St. 208, Maadi","E-Commerce & Courier","E-Commerce Courier & Fulfillment","+20 10 3790 8697","help@bosta.co / techsupport@bosta.co / gaber@bosta.co",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","J&T Express Egypt","Bldg 58, St. 265, Sector 3, New Maadi, El Basatin","E-Commerce & Courier","Express Courier & Logistics","15885","jt.bids@jtexpress-eg.com / sales@jtexpress-eg.com",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","R2S Logistics","48 Hassan El Maamoun St., Nasr City","E-Commerce & Courier","3PL & E-Commerce Fulfillment","+1 361-980-3608 (Registry)","Portal (r2slogistics.com)",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Khazenly","Zamalek, Cairo","E-Commerce & Courier","On-Demand Warehousing & 3PL","+20 12 1189 8489","@khazenly.com",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Flextock","20 Amin Anis St., Heliopolis","E-Commerce & Courier","E-Commerce Fulfillment & 3PL","Portal (flextock.com)","Portal (flextock.com)",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Sprint Logistics","17 Corniche El Nil, Maadi / Downtown","E-Commerce & Courier","E-Commerce Courier & 3PL","+20 2 2524 2775","Sales@sprintlogistics.com",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Egypt Post","Central Cairo Headquarters","E-Commerce & Courier","National Postal & Parcel Courier","16789","cs@egyptpost.org",[1,1,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","ABS Courier & Freight Systems","New Cairo / Central Cairo","E-Commerce & Courier","Courier & Last-Mile Delivery","16231 / +20 100 007 8773","info@absegy.com / demerdash@absegy.com",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Middle East Courier Services (MECS)","1 Mahmoud Hafez St., Safir Sq., Heliopolis","E-Commerce & Courier","Domestic Courier Network","+20 2 2776 2827 / 01000130156","hr@mecs-eg.com",[1,0,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Breadfast","New Cairo / Greater Cairo Hubs","Supermarkets & Retail","Q-Commerce Grocery & Bakery","+20 10 1666 6670","inquiries@breadfast.com",[1,0,1,1,1,1,1,1,1]],
+      ["1. Cairo Governorate","Cairo","MaxAB","El Zeini Tower, 28 Misr Helwan Rd., Maadi","HoReCa & B2B Distributors","B2B Grocery & Wholesale Platform","+20 12 2444 4671","info@maxab.io / anas@maxab.io",[1,1,1,0,1,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Carrefour Egypt (MAF Retail)","Mearaj City, Ring Rd., Beside City Centre Maadi","Supermarkets & Retail","Hypermarket & Supermarket Chain","16061 / +20 2 2520 4301","headoffice@carrefour.com.eg / egyptinfo@mafcarrefour.com",[1,0,1,1,1,1,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Spinneys Egypt","14D Magdy Salama St., Laselky, Autostrad, Maadi","Supermarkets & Retail","Hypermarket & Supermarket Chain","16005 / +20 2 2517 3247 / +20 10 1999 6330","customer.service@spinneys-egypt.com / e-commerce@spinneys-egypt.com",[1,0,1,1,1,1,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Kazyon (Tawfeer for Food Products)","Yamama Center, Fl. 5, 3 Taha Hussein St., Zamalek","Supermarkets & Retail","Hard-Discount Supermarket Chain","+20 2 2368 1385 / +20 10 0627 1491","info@kazyon.com / mohamed.nasr@kazyon.com",[1,0,1,1,1,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Gourmet Egypt","L4 Yamama Center, 3 Taha Hussein St., Zamalek","Supermarkets & Retail","Upscale Grocery & Food Manufacturing","19339 / +20 2 2128 6200 / 02 2737 0617","jalal.abugazaleh@gourmetegypt.com / call.center@gourmetegypt.com",[1,0,1,1,0,1,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Metro Markets & Kheir Zaman (Mansour Group)","Industrial Zone, Zahraa El Maadi, New Maadi","Supermarkets & Retail","Supermarkets & Discount Retail (229 Stores)","19619 / 19073 / +20 2 2598 4600","Ahmed.fouad@metro-markets.com / contact@metro-markets.com",[1,0,1,1,1,1,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Fresh Food Market (Mansour Group)","AUC Ave, Point 90 Mall, New Cairo","Supermarkets & Retail","Luxury Artisanal Supermarket","+20 2 3300 4123 / 19073","pahmed@mantracegypt.com / info@mansourgroup.com",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","LuLu Hypermarket Egypt","Emerald Mall, 1st Settlement, New Cairo","Supermarkets & Retail","Hypermarket Chain","+20 2 2598 3555 / +20 11 4444 7001","huzaifaq@eg.lulumea.com / customerservice3920@eg.lulumea.com",[1,0,1,0,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Oscar Grand Stores","105 Omar Ibn El Khattab St., Heliopolis & New Cairo","Supermarkets & Retail","Premium Supermarket & Central Kitchen","16991 / 02 2418 4183 / 01050403443","info@oscarstores.com / info@oscargrandstores.com",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Mahmoud Elfar Market (Far Trading Co.)","64 Gamal El Din Dewidar St., Nasr City","Supermarkets & Retail","Supermarket Chain & Food Importer","+20 2 4489 1706 / +20 101 101 1920","info@fartradingco.com",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Royal House Supermarket","4-6 El Athary Mohamed Nafea St., Roxy, Heliopolis","Supermarkets & Retail","Supermarket & Department Store","02 2451 4445 / 02 2039 6800","Portal (royalhousemarket.com)",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Flamingo Hyper Market","Dyar Mall, North 90th St., New Cairo & Madinaty","Supermarkets & Retail","Hypermarket Chain","16009 / 01207888024 / 01120000636","Portal",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Panda Retail Company Egypt","4-7 El Nasr Rd., 6th District, Nasr City","Supermarkets & Retail","Hypermarket & Supermarket Chain","02 2677 5495","export@panda-egypt.com / customercare@panda.com.sa",[0,0,1,0,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Abdullah Al Othaim Markets Egypt","8 Ahmed Hassan St., 9th District, Nasr City","Supermarkets & Retail","Supermarket Chain","Branch Network","Portal",[0,0,1,0,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Gomla Market","Gamal Abdel Nasser St., 3rd Ind. Zone, New Cairo","Supermarkets & Retail","Wholesale & Retail Hypermarket","01022477781 / 01050919990","Portal",[0,0,1,0,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Ragab Sons (Awlad Ragab)","40 El-Azhar St., El Azhar, Cairo","Supermarkets & Retail","Supermarket Chain","+20 2 2593 4092","info@ragabelattar.com / acc@ragabelattar.com",[0,0,1,0,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Sunny Supermarket","11 Al Aziz Othman St., Zamalek","Supermarkets & Retail","Supermarket","+20 2 2736 8121","Info@sunny.com.eg",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","El Nil, Al Masria, Al Ahram (FIHC)","Saraya El Qobba, Sawah, Cairo","Supermarkets & Retail","State Consumer Cooperatives & Retail","+20 2 2284 5571 / 02 2284 5573","info@food-industries.com.eg",[0,1,1,1,1,0,0,0,1]],
+      ["1. Cairo Governorate","Cairo","El Ezaby Pharmacies","6C Takseem Asmaa Fahmy, Ard El Golf, Heliopolis","Retail, Apparel & Pharmacy","Pharmacy Chain & Healthcare Logistics","19600 / +20 2 2414 1445","contactus@elezabypharmacy.com",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Seif Pharmacies (El Seif Group)","Plot 67/68, 5th Settlement, New Cairo & Misr El Kadima","Retail, Apparel & Pharmacy","Pharmacy Chain","19199 / 02 2618 4128 / +20 12 2550 0099","amro.hassan@seifgroup.com",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","B.TECH","Ramsis St. Extension, 6th Zone, Nasr City","Retail, Apparel & Pharmacy","Omnichannel Electronics & Appliances (190+ Stores)","19966 / +20 2 2348 0700","info@b.tech.com.eg / quality@b.tech.com.eg",[1,1,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Raneen","Al Hay Al Asher, Nasr City","Retail, Apparel & Pharmacy","Omnichannel Home & Appliances Retail","16113","Portal (raneen.com)",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","LC Waikiki Egypt","Cairo Regional Office","Retail, Apparel & Pharmacy","Apparel Retail & E-Commerce","19739","egypt@lcwaikiki.info",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","DeFacto Egypt","Cairo Regional Office","Retail, Apparel & Pharmacy","Apparel Retail & E-Commerce","19782 / +20 150 171 8113","support@defacto.com",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Concrete Fashion Group","15 St., Near North Area, Nasr City Public Free Zone","Retail, Apparel & Pharmacy","Apparel Manufacturing & Retail","15134 / +20 2 2273 1093","Portal (concretefashiongroup.com)",[1,1,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Town Team","Cairo","Retail, Apparel & Pharmacy","Apparel Retail & E-Commerce","16579","Portal (townteam.com)",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Mobaco Cottons","Cairo Festival City, New Cairo","Retail, Apparel & Pharmacy","Apparel Manufacturing & Retail","+20 2 2520 4388 / 01279548493","Portal",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Tie House","Plot 256, Industrial Zone, New Cairo & Downtown","Retail, Apparel & Pharmacy","Men's Apparel Manufacturing & Retail","02 2773 5557 / 01027224886","Portal (tie-house.com)",[1,0,1,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Aldoha for Food Industries (Aldoha Foods)","Plot 28-S1, Investments Ind. Zone, Kattameya","Flour, Sugar, Rice & Pasta","Rice, Pasta, Pulses & Spices Packing","+20 100 239 0007","info@eldoha.com",[0,1,0,0,1,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Savola Foods Egypt (El Maleka / Alosra)","New Cairo Regional HQ","Flour, Sugar, Rice & Pasta","Pasta, Sugar, Edible Oils & Snacks","Corporate Switchboard","[first].[last]@savola.com",[0,1,0,0,1,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","BiscoMisr (Arma Group)","65 South Teseen, New Cairo & 32 El Sawah St., Ameriya","Snacks, Confectionery & Dry Food","Biscuits, Wafers & Bakery Snacks","17134 / 16944 / +20 2 2286 6600","info@biscomisr.com",[0,0,0,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Abu Auf (AUF Egypt)","Plot 31-33 Ind. Zone, 3rd Settlement, New Cairo","Snacks, Confectionery & Dry Food","Coffee, Nuts, Pulses, Dried Fruit & Snacks","19969","info@abuauf.com",[1,0,1,0,1,1,0,1,0]],
+      ["1. Cairo Governorate","Cairo","The Arab Dairy Products Co. (Panda)","Piece 29/1, Industrial Zone, Kattameya","Dairy & Cheese","White & Processed Cheese Manufacturing","+20 122 313 2932 / +20 2 2180 5105","mragaii@arabdairy.com / hewayda@arabdairy.com",[0,0,0,0,0,1,1,0,0]],
+      ["1. Cairo Governorate","Cairo","Beyti (Int'l Co. for Agro Industrial Projects)","Bldg 88, 70th St., 1st Sector, 5th Settlement, New Cairo","Dairy & Cheese","Dairy, Yogurt & Juice Manufacturing","+20 106 400 9527 / +20 2 2929 6527","sherif.osman@beyti-idj.com",[0,0,0,0,0,1,1,0,0]],
+      ["1. Cairo Governorate","Cairo","Cairo Three A (Cairo 3A Poultry / Shahd)","62B, 5th Settlement Services Center, New Cairo","Poultry, Meat & Seafood","Integrated Poultry, Frozen Vegetables, Grains & Starch","15287 / 16993 / +20 2 2565 7382","info@cairo3a.org / qutoof@cairo3a.net",[0,1,0,1,0,1,0,1,1]],
+      ["1. Cairo Governorate","Cairo","EgySwiss Food Industries (SeaStar)","8 Abd El-Hameed Badawi, Sheraton El Nozha & New Cairo","Poultry, Meat & Seafood","Processed Meat, Poultry & Fish","+20 2 2305 4409 / +20 103 055 5863","info@egyswissfood.com / info@egyswissholding.com",[0,0,0,1,0,1,1,0,1]],
+      ["1. Cairo Governorate","Cairo","SEKEM Holding","Km 3 Cairo-Belbeis Desert Rd., P.O. Box 2834 Heliopolis","Snacks, Confectionery & Dry Food","Organic Tea, Herbs, Dates & Spices","+20 2 2658 8124 / 01223999147","cs@sekem.com",[0,1,0,0,1,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Commercial Co. for Ind. & Real Estate (CIR)","5b Hafez Ramadan St., Alammar Plaza, Nasr City","IQF Frozen & Agri Export","IQF Frozen Fruits & Vegetables","+20 100 320 0014","eng.abdallah@cir.com.eg / info@cir.com.eg",[0,1,0,1,0,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Oils and Grains LLC","Block 4, Abdelrahman Bisar St., 1st Settlement, New Cairo","Flour, Sugar, Rice & Pasta","Grains, Pulses, Edible Oils & Olives","+20 101 828 9955","sara.mekkawy@oilsandgrains.com",[0,1,0,0,1,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Quality Standard Co. (Medfood)","5 El-Orouba St., Heliopolis","Snacks, Confectionery & Dry Food","Table Olives, Pickled Veggies & Spreads","+20 109 306 6661 / +20 100 606 6888","info@medfood.com",[0,0,0,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Nouna (S2C Food)","24 El 50 St., Zahraa El Maadi","Snacks, Confectionery & Dry Food","Jams, Honey, Tomato Paste & Pickles","+20 100 100 0120","waled.fathy@s2cfood.com",[0,0,0,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Elshorbagy Group for Foods","217 El-Hegaz St., Heliopolis","Snacks, Confectionery & Dry Food","Pickles, Grape Leaves, Tomato Sauce & Salt","+20 106 618 8066","samirshorbagy60@gmail.com",[0,1,0,0,0,1,1,0,0]],
+      ["1. Cairo Governorate","Cairo","Healthtech","87 Ramsis St., Cairo","Snacks, Confectionery & Dry Food","Wafers, Biscuits & Confectionery","+20 128 426 4428 / +20 100 155 8134","habiba.eldahshan@healthtech-eg.com",[0,0,0,0,0,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Horeca Star (Trade Yard)","Sittin St. / New Cairo","HoReCa & B2B Distributors","HoReCa Foodservice & Packaging Distributor","+20 12 0097 1111 / 01022822177","info@horeca-star.com / care@ihoreca.com",[0,0,1,1,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Universe Trading Company (UTC)","5th Settlement, New Cairo","HoReCa & B2B Distributors","FMCG & HoReCa Distribution","01065651006","info@utcegypt.net",[0,0,1,1,1,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","EgyptAir In-Flight Services","EgyptAir Catering Bldg, Cairo Int'l Airport","QSR, Restaurants & Catering","Airline Catering & In-Flight Meals","+20 2 2290 6785","catering_operations@egyptair-ifs.com",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","La Poire Group","2 Al Masanea St., El Basatin, Cairo","Bakery & Patisserie","Patisserie, Bakery & Cafe Conglomerate (50+ Branches)","19515 / 01142559000","marketing@lapoire.net",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Tseppas Patisserie","Villa 145, El Banafseg 3, New Cairo","Bakery & Patisserie","Patisserie & Bakery Chain (27 Branches)","19918 / +20 11 0121 9918","info@tseppas.com / complaints@tseppas.com",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Etoile Patisserie","Cairo & Mostorod Factory","Bakery & Patisserie","Patisserie & Bakery Chain (29 Branches)","16312 / +20 11 0072 6007","a.mostafa@etoile.com / info@etoilepatisserie.com",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Salé Sucré Pâtisserie","5/3 St. 280 off Laselky St., Maadi","Bakery & Patisserie","Patisserie & Bakery Chain (50+ Stores)","17228 / 19632 / 01000005596","info@salesucre.com",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","NOLA Bakery (Nola Cupcakes)","12 Brazil St., Zamalek, Cairo","Bakery & Patisserie","Bakery & Pastry Chain (24 Branches)","16714 / +20 2 2587 4450","laila@nolabakery.com",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Tortina Patisserie","2 El Laselky St., Maadi / 12 Hassan Sabry, Zamalek","Bakery & Patisserie","Luxury Patisserie Chain (17 Branches)","15412 / +20 10 3378 1159","Portal (tortina.shop)",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Simonds Bakery","29 El Sherif St., Abdeen, Downtown","Bakery & Patisserie","Bakery & Patisserie Chain","16264 / 02 2393 8519 / +20 10 9009 7594","Portal (simondsbakery.com)",[0,0,1,0,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","TBS Holding (The Bakery Shop)","Bldg 18, Sq. 1219, Sheraton Heliopolis (Factory: 6 Oct)","Bakery & Patisserie","Bakery & Grab-and-Go Retail Chain","16679 / 02 2736 0071","khaled.darweesh@tbsegypt.com / franchise@tbsegypt.com",[0,0,1,1,0,1,1,1,0]],
+      ["1. Cairo Governorate","Cairo","B.Laban Dairy & Desserts","9 Abbas Helmy St., Al Merghani, Heliopolis","Bakery & Patisserie","Dairy Desserts Chain (140+ Branches)","15761","Portal (blaban.net)",[0,0,1,0,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Manfoods – McDonald's Egypt","10 El Kamel Mohamed St., Fl. 5, Zamalek","QSR, Restaurants & Catering","QSR Chain (190+ Branches)","19991 / 02 2736 1318","contact-us@mcdegypt.com",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Buffalo Burger (Saal Invest)","60 Abdullah El Araby St., Nasr City","QSR, Restaurants & Catering","QSR Chain & Meat Processing Facility","19914","info@saalinvest.com",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Bazooka Fried Chicken","17 Al Shahid Helmy Kamal St., Heliopolis Sq.","QSR, Restaurants & Catering","QSR Fried Chicken Chain","16455 / +20 10 1201 8530","info@bazookaegy.com / mo.salah@bazookafriedchicken.com",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Zooba","114, 26th of July St., Zamalek","QSR, Restaurants & Catering","Contemporary Egyptian Street Food Chain","16082 / 01023152510","@zoobaeats.com",[0,0,1,0,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Mori International (Mori Sushi / Tamara / Ted's)","24 Abd El Moniem Hafez St., Almaza, Heliopolis","QSR, Restaurants & Catering","Casual Dining Group & Central Food Factory","16885 / 16553 / +20 2 2418 2771","info@mori-sushi.com / info@tamara-bistro.com",[0,0,1,1,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","El Dahan (Tourism Projects Mgmt.)","Plot 22, Food Industries, Kattameya, New Cairo","QSR, Restaurants & Catering","Oriental Grill Chain & Central Factory","16194 / 19554 / +20 12 7011 7105","remon@loadserv.com.eg / info@loadserv.com.eg",[0,0,1,1,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Abou Shakra Group","69 Kasr El Ainy St., Cairo","QSR, Restaurants & Catering","Restaurant & Catering Group","19090 / +20 2 2531 6111","Portal (aboushakra.net)",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","GAD Restaurant","88 El Merghany St., Heliopolis / First Settlement","QSR, Restaurants & Catering","High-Volume QSR & Oriental Food Chain","16475 / 01211317777 / 02 2599 2685","Portal",[0,0,1,0,0,0,1,1,1]],
+      ["1. Cairo Governorate","Cairo","Mo'men Group","Nasr City / Heliopolis, Cairo","QSR, Restaurants & Catering","QSR Sandwich Chain","16600","Portal",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Cook Door","Cairo","QSR, Restaurants & Catering","QSR Chain","16999","Portal (cookdoor.com.eg)",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Heart Attack","124 Manial St. / Nasr City / Heliopolis","QSR, Restaurants & Catering","Fried Chicken QSR Chain (11 Branches)","15428","Portal",[0,0,1,1,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Koshary El Tahrir","Tahrir Sq., Downtown / New Cairo / Maadi","QSR, Restaurants & Catering","High-Volume Koshary QSR Chain","19719 / +20 2 2795 3596","Portal",[0,0,1,0,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","Koshary Abu Tarek","16 Champollion St., Downtown, Cairo","QSR, Restaurants & Catering","Koshary Restaurant & Takeaway","+20 2 2577 5935 / 02 2576 1911","Portal",[0,0,1,0,0,0,1,1,0]],
+      ["1. Cairo Governorate","Cairo","MAFA (Magrabi Agriculture)","13 Abdel Khalek Tharwat St., Downtown, Cairo","IQF Frozen & Agri Export","Fresh Fruit & Citrus Grower/Exporter","+20 2 2578 1151","info@magrabi-agriculture.com / shishiny@magrabi-agriculture.com",[0,1,0,0,0,0,0,1,0]],
+      ["1. Cairo Governorate","Cairo","Belco (Int'l Egyptian Co. for Land Reclamation)","19 Abo El Feda St., Zamalek, Cairo","IQF Frozen & Agri Export","Fresh Berries, Grapes & Veggies Exporter","+20 2 2735 7213 / +20 100 193 3066","amr.elbeltagy@belco.com / info@belco.com",[0,0,0,0,0,0,0,1,0]],
+      ["1. Cairo Governorate","Cairo","Teriak Farm","25A Ismail Mohamed St., Zamalek, Cairo","IQF Frozen & Agri Export","Potato, Citrus & Mango Exporter","+20 2 2735 3554 / +20 120 797 6920","Export@elteriakfarms.com",[0,1,0,0,0,0,0,1,0]],
+      ["1. Cairo Governorate","Cairo","Dakahlia Group (Agri Development)","15 Ramo Bldg, 9th Fl., Nasr Rd., Nasr City","IQF Frozen & Agri Export","Citrus, Potato, Grape & Onion Exporter","+20 2 2305 4802 / +20 100 372 8969","m.mohsen@dakahlia.com",[0,1,0,0,0,0,0,1,0]],
+      ["1. Cairo Governorate","Cairo","O Royal Group","17A Obour Bldgs., Salah Salem, Cairo","IQF Frozen & Agri Export","Strawberries, Grapes & Citrus Exporter","+20 2 2262 7371","info@oroyalgroup.com / oroyal.eg@gmail.com",[0,1,0,0,0,0,0,1,0]],
+      ["1. Cairo Governorate","Cairo","Aldahra Agriculture Egypt","11 Ebad Al Rahman St., Sheraton Heliopolis","IQF Frozen & Agri Export","Blueberries, Grapes, Dates & Grain Producer","+971 2 656 5000 / +971 50 536 3728","info@aldahra.com",[0,1,0,0,0,1,0,1,0]],
+      ["1. Cairo Governorate","Cairo","Helwan Fertilizers Company (HFC)","1081 Corniche El-Nil / Helwan Free Zone, Cairo","Fertilizers, Salt & Chemicals","Urea Fertilizer Manufacturing","+20 2 2543 0308 / +20 2 2543 0616","info@hfcegypt.com",[0,1,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","ASCOM (Asec Company for Mining)","26 St. 265, New Maadi, Cairo","Fertilizers, Salt & Chemicals","Industrial Minerals & Calcium Carbonate","+20 2 2520 3371 / +20 12 2345 8660","ascom@ascom.com.eg / nader.ghazaly@ascom.com.eg",[0,1,0,0,0,0,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Canal Sugar Company","Bldg C1/B2, Cairo Festival City, New Cairo (Plant: Minya)","Flour, Sugar, Rice & Pasta","Beet Sugar Manufacturing (750k MT/yr)","+20 2 2586 3000 / +20 11 2203 5555","info@canalsugar.com / Recruitment@canalsugar.com",[0,1,0,0,0,1,0,0,0]],
+      ["1. Cairo Governorate","Cairo","Dakahlia Sugar Co.","14 Gawad Hosni St., Downtown, Cairo","Flour, Sugar, Rice & Pasta","Sugar Refining & Packing","Registry","Registry",[0,1,0,0,0,1,0,0,0]],
+
+      // REGION 2: GIZA GOVERNORATE (36)
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Noon E-Commerce SAE","Bldg 4, Arkan Plaza 2, Sheikh Zayed City","E-Commerce & Courier","E-Commerce & Q-Commerce (Noon Minutes)","16358","egypt@noon.com / help.minutes@noon.com",[1,0,1,0,0,0,0,0,0]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Mylerz","Arkan Plaza, Bldg 3, 3rd Fl., Sheikh Zayed & 6th of Oct Hub","E-Commerce & Courier","E-Commerce Courier & Fulfillment","+20 2 3333 6871 / +20 101 680 3336","contact@mylerz.com",[1,0,0,0,0,0,0,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Hyper One Trading","Entrance 1, Sheikh Zayed / 6th of October City","Supermarkets & Retail","Hypermarket Chain","16404 / 02 3850 4778 / +20 10 2666 2054","info@hyperone.com.eg / info@hyperone.com",[0,0,1,1,1,1,1,1,1]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Seoudi Supermarket (United Grocers SAE)","Plot 4 & 9, Central Axis, Sheikh Zayed & 22 Mesaha, Dokki","Supermarkets & Retail","Premium Supermarket Chain (22 Branches)","16176 / 02 3761 7087 / +20 15 0197 9391","mabdelazim@seoudisupermarket.com / Contactus@seoudisupermarket.com",[1,0,1,1,1,0,1,1,1]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Alfa Supermarket","22 Avenue Mall, Sheikh Zayed & Zamalek","Supermarkets & Retail","Supermarket Chain","19299 / 02 3796 3100 / 02 2737 0805","Portal (alfa.com.eg)",[0,0,1,0,0,0,1,1,1]],
+      ["2. Giza Governorate","Giza (Mohandessin)","Misr Pharmacies Company S.A.E.","27-29 El Quds El Shareef St., Off Gameat El Dowal, Giza","Retail, Apparel & Pharmacy","Pharmacy Chain","+20 10 5049 3333","amr.ahmed@misrpharmacies.com / e-commerce@misrpharmacies.com",[1,0,1,0,0,0,0,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Edita Food Industries (& Edita Frozen)","Plot 13 Central Pivot, Sheikh Zayed & 6 Oct Ind. Zone","Snacks, Confectionery & Dry Food","Baked Snacks, Croissants, Wafers & Frozen Bakery","19177 / +20 2 3851 6464 / +20 111 088 8885","rana.osman@edita.com.eg / diana.wadid@edita.com.eg",[0,0,0,1,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Juhayna Food Industries","Polygon Bldg 2, Beverly Hills, Sheikh Zayed & 6 Oct Plants","Dairy & Cheese","Dairy, Yogurt, Cheese & Juices","16630 / +20 2 3850 8393 / +20 2 3827 1858","contactus@juhayna.com / Export@juhayna.com",[0,0,0,0,0,1,1,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Arabian Food Industries (Domty)","HQ: 32C Murad St., Giza / Factory: 6 Oct Dist. 2, Plot 12","Dairy & Cheese","Cheese, Dairy, Juice & Fresh Bakery","+20 2 3572 4924 / +20 2 3820 2556","domty@domty.org / ahmed.salman@domty.org",[0,0,0,0,0,1,1,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Modern Bakeries Co. (Rich Bake)","Plot A, 1st & 2nd Dist. Service Center, 6th of October","Bakery & Patisserie","Packaged Bread, Frozen Bakery & Cakes","16810 / +20 2 3699 8610 / +20 10 9450 5759","engy.mohamed@richbake.com / marketing@richbake.com",[0,0,1,1,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Al Watania Poultry Egypt","2 City Star Towers, Plot 3/43, 11th Dist., 6th of October","Poultry, Meat & Seafood","Poultry Slaughtering, Further Processing & Feed","+20 10 2463 1788","mahmed@alwatania-egy.com / @alwatania-egy.com",[0,1,0,1,0,1,0,0,1]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Wadi Group (Wadi Food / A'laf Al Wadi)","Capital Business Park, Bldg B1, 26th of July Corridor","Snacks, Confectionery & Dry Food","Olives, Tomato Paste, Poultry & Animal Feed","19528 / +20 2 3827 8203 / 01099991199","wadi@wadigroup.com / atarek@wadigroup.com.eg",[0,1,0,1,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","El Rashidi El Mizan Confectionery","18/2 St., Plot 38-39, Ind. Zone 2, 6th of October","Snacks, Confectionery & Dry Food","Halawa, Tahina, Jams & Tomato Paste","+20 2 3820 2916 / +20 2 3833 4007","careers@elrashidi.com",[0,0,0,0,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Chipsy for Food Industries (PepsiCo Egypt)","4th Industrial Zone, 6th of October & 38 Mossadak, Dokki","Snacks, Confectionery & Dry Food","Potato Chips & Extruded Snacks (Chipsy, Doritos, Cheetos)","Corporate Switchboard","Portal (pepsicojobs.com)",[0,1,0,0,0,1,0,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Henkel Egypt (Persil)","Plot 30, Polaris Al Zamil Ind. Park, 6th of October","Fertilizers, Salt & Chemicals","Detergents & Home Care Manufacturing","+20 2 2696 9100","@henkel.com",[0,1,0,0,0,1,0,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","OVO Egypt","37 Polaris Int'l Ind. Parks, North Ext., 6th of October","Dairy & Cheese","Pasteurized Liquid & Powder Egg Processing","+20 2 3864 0228 / +20 2 3864 0229","info@ovoegypt.com",[0,1,0,1,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Tag Elmelouk for Food Industries","6th of October Industrial Zone","Snacks, Confectionery & Dry Food","Food & Confectionery Manufacturing","+20 111 888 1032","hussein.nawara@tagelmelouk.com",[0,0,0,0,1,1,1,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","4A Nutrition for Food Industries","Plot 136, 3rd Industrial Zone, 6th of October","Flour, Sugar, Rice & Pasta","Oats, Oat Pasta, Cereal & Granola Bars","+20 102 880 0002","ahmed.ayman@4anutrition.com",[0,0,0,0,1,1,1,0,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Kemet for Natural Food","Lot 48B, 5th Industrial Zone, 6th of October","Snacks, Confectionery & Dry Food","Pretzels & Baked Snacks","+20 128 511 4115 / +20 2 3816 4076","dina.hosny@kemetfood.com / export@kemetfood.com",[0,0,0,0,0,1,0,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Awael Food Industries Co.","180 Ext. 3rd Industrial Zone, 6th of October","Snacks, Confectionery & Dry Food","Biscuits & Candies","+20 100 687 1171","awael_foodind@yahoo.com",[0,0,0,0,0,1,0,1,0]],
+      ["2. Giza Governorate","Giza (Mohandessin)","Elshahed Production House (Nutzzi)","7 Abdelaziz Gawish St., Lebanon Sq., Mohandessin","Snacks, Confectionery & Dry Food","Dried Fruits, Nuts & Roasted Seeds","+20 110 122 0233","mariamelshahed@nutzzi-eg.com / partnerships@nutzzi-eg.com",[1,0,0,0,0,1,0,1,0]],
+      ["2. Giza Governorate","Giza (Kerdasa)","El Abd Patisserie (El Abd Foods)","Kerdasa Industrial Area, Giza (Retail: Downtown/6 Oct)","Bakery & Patisserie","Patisserie, Kahk, Biscuits & Ice Cream","17111 / 01222160571 / +20 2 2160 0102","support@elabdfoods.com",[0,0,1,0,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Monginis Egypt","6th of October Factory & Giza HQ","Bakery & Patisserie","Bakery & Cake Retail Chain","19521 / 01128515433","Portal",[0,0,1,0,0,1,1,1,0]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Daltex Corporation","The Gate Plaza, Bldg B2, Fl. 3, Sheikh Zayed","IQF Frozen & Agri Export","Fresh Potatoes, Citrus, Grapes & Berries Exporter","+20 2 3305 0505 / 0127332223","sales@daltexcorp.com / naggar@daltexcorp.com",[0,1,0,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (Mohandessin)","PICO Modern Agriculture Co.","8 Geziret Al Arab St., Infinity Tower, Mohandessin","IQF Frozen & Agri Export","Strawberries, Grapes, Stone Fruit & Avocado Exporter","+20 12 2221 5815 / +20 2 2359 1990","info@picoagriculture.com / m.fayed@picoagriculture.com",[1,0,1,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (6th of October)","Agro Egypt (Ghallab)","CPC Industrial Park, Plot 2-3, 6th of October","IQF Frozen & Agri Export","Citrus, Grapes, Pomegranate & Mango Exporter (41k MT)","+20 2 3864 2048 / +20 122 310 8044","info@agroegypt.com",[0,1,0,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (Dokki)","Blue Nile (Blue Nile Organic)","36 Nady Elsyed St. / 3 Ibn Kathier St., Dokki","IQF Frozen & Agri Export","Organic Fruits & Vegetables Exporter","+20 2 3762 2067 / +20 100 577 0079","Export@bluenileegypt.com",[0,0,0,0,0,0,1,1,0]],
+      ["2. Giza Governorate","Giza (Dokki)","Linah Farms","50 Mohy El Din Abou El Ezz St., Fl. 13, Dokki","IQF Frozen & Agri Export","Medjool & Barhi Dates Producer/Exporter","17885 / 17855","info@linahfarms.com",[1,0,0,0,0,1,1,1,1]],
+      ["2. Giza Governorate","Giza (Haram)","Al Tahhan Golden Dates","417 Al-Haram St. / 3 Gamal Al Din Al Afghany St., Giza","Snacks, Confectionery & Dry Food","Dates, Stuffed Dates, Maamoul & Date Syrup","16833 / 01067717725 / 01028815880","export@altahhandates.com / omar.ahmed@altahhandates.com",[0,0,0,0,0,1,1,1,1]],
+      ["2. Giza Governorate","Giza (Mohandessin)","Agrofood Company","44 Lebanon St., 2nd Fl., Mohandessin","IQF Frozen & Agri Export","Potatoes, Carrots, Onions & Green Beans Exporter","+20 2 3302 1966 / 01002406730","salah@agrofood.org / logistics@agrofood.org",[0,1,0,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (Sheikh Zayed)","Agrostar for Modern Agriculture (EFE)","Polygon, Tower 8, Unit 1A, Beverly Hills, Sheikh Zayed","IQF Frozen & Agri Export","Table Grapes & Citrus Exporter","+20 100 021 7261","Export@efe.com.eg",[0,0,0,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (Agouza)","Hegazy Farms","201, 26 July St., Agouza","IQF Frozen & Agri Export","Peppers, Peaches, Mangoes & Grapes Exporter","+20 122 340 9021","hegazy@hegazyfarms.com",[0,0,0,0,0,0,0,1,0]],
+      ["2. Giza Governorate","Giza (Abu Rawash)","Evergrow for Specialized Fertilizers","Bldg B93, St. 15, Smart Village & Abu Rawash Ind. Zone","Fertilizers, Salt & Chemicals","Specialty Fertilizers, Chemicals & Feed Additives","+20 2 3537 1091 / +20 12 2869 9030","marketing@evergrowfert.com",[0,1,0,0,0,0,0,0,0]],
+      ["2. Giza Governorate","Giza (Mohandessin)","Abu Zaabal for Fertilizers & Chemicals","22 Syria St., Mohandessin","Fertilizers, Salt & Chemicals","Phosphate & Granular Fertilizers","02 3761 8002 / 02 3749 8275","sherif@elgabaly.com",[0,1,0,0,0,0,0,0,0]],
+      ["2. Giza Governorate","Giza (Agouza)","Nile Sugar Company","162-B July 26th St., Agouza (Plant: Km 54 Alex Desert Rd.)","Flour, Sugar, Rice & Pasta","Beet Sugar Refining & Packing","+20 2 3308 6030 / +20 2 3308 6050","info@nile-sugar.com",[0,1,0,0,0,1,0,0,0]],
+      ["2. Giza Governorate","Giza (Agouza/Dokki)","Delta Sugar Company","20 Salem Salem St., Agouza (Plant: Kafr El Sheikh)","Flour, Sugar, Rice & Pasta","Sugar & Molasses Production","+20 2 3749 5773 / +20 47 3760 369","deltasugar@deltasugar.com",[0,1,0,0,0,1,0,0,0]],
+
+      // REGION 3: 10TH OF RAMADAN & SHARQIA (11)
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Cairo Poultry Processing Co. (Koki / CPPC)","3rd Industrial Zone, 10th of Ramadan (HQ: 32H Mourad, Giza)","Poultry, Meat & Seafood","Chilled & Frozen Poultry, Value-Added Chicken & Feed","19585 / 015 410724 / 02 3571 0151","info@cppcamericana.com / arefaat@cpc-americana.com / hrezk@americana-food.com",[0,1,0,1,0,1,1,0,1]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Halwani Bros Egypt","Industrial Zone B3, Area 163-164, 10th of Ramadan","Poultry, Meat & Seafood","Processed Meat, Frozen Poultry, Halawa, Tahina & Jam","0126366667 / 015 369515","info@halwani.com",[0,0,0,1,0,1,1,1,1]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Farm Frites Egypt","Industrial Zone A2, Lot C, 10th of Ramadan","IQF Frozen & Agri Export","Frozen French Fries & Potato Specialties","015 411470 / +20 2 2622 5069","info@farmfrites.com.eg / hazemhesham@farmfrites.com.eg / ahmed.mohsen@farmfrites.com.eg",[0,1,0,1,0,1,0,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","BIM Stores Egypt","Km 58 Misr Ismailia Desert Rd., 10th of Ramadan","Supermarkets & Retail","Hard-Discount Supermarket Chain","+20 55 433 2340","info@bim.eg",[0,0,1,1,1,1,0,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Misr Cafe Co.","Industrial Zone A1 & A6/100, 10th of Ramadan","Snacks, Confectionery & Dry Food","Instant Coffee, Coffee Blends & Tea","+20 55 441 0044 / +20 2 2290 8374","info@misrcafe.com.eg / mounir@misrcafe.com.eg",[0,0,0,0,0,1,0,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Horreia Food Industries","2nd Industrial Zone, B2, 10th of Ramadan","Snacks, Confectionery & Dry Food","Food & Confectionery Manufacturing","+20 55 449 8468 / +20 55 449 8458","info@horreia.com",[0,0,0,0,0,1,1,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Lacto Misr","Industrial Zone A6, Plot 131, 10th of Ramadan","Dairy & Cheese","Infant Formula & Dairy Powder Production","+20 15 411777 / +20 109 349 9797","info@lactomisr.com",[0,1,0,0,0,1,0,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Hot Line for Food Industrial","3rd Area, A6 Small Industries, Piece 75, 10th of Ramadan","Snacks, Confectionery & Dry Food","Jelly, Juice Powder, Custard & Chocolate Cream","+20 109 906 6610 / +20 128 778 8501","hotline.ind@gmail.com / maged.source@gmail.com",[0,0,0,0,0,1,1,0,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Farm Fruits (AGREEN / Green Egypt)","10th of Ramadan City","IQF Frozen & Agri Export","Citrus Packhouse & Export","+20 100 324 1122 / +20 54 350001","info@agreen-co.com",[0,1,0,0,0,0,0,1,0]],
+      ["3. 10th of Ramadan & Sharqia","10th of Ramadan","Houd Elnile for Agricultural Dev.","9 Abatraa Mall, 10th of Ramadan","IQF Frozen & Agri Export","Citrus, Grapes, Pomegranate & Mango Export","+20 127 060 1601","Mail@houdelnile.com / h.ismail@houdelnile.com",[0,1,0,0,0,0,0,1,0]],
+      ["3. 10th of Ramadan & Sharqia","Al Salhia Al Gededa","Dairy Land (El Zahar)","Plot 31 & 32, Sector C, 1st Ind. Zone, Al Salhia, Sharqia","Dairy & Cheese","Milk & Cheese Manufacturing","+20 128 949 5552","Info@Elzahar.com / Yasser@Elzahar.com",[0,0,0,0,0,1,1,0,0]],
+
+      // REGION 4: OBOUR, BADR & QALYUBIA (12)
+      ["4. Obour, Badr & Qalyubia","Obour City","Obour Land for Food Industries S.A.E.","Block 13012, Area 7–16, 1st Ind. Zone, Obour City","Dairy & Cheese","White Cheese, Processed Cheese, Milk & Juice","16347 / +20 2 4481 2216 / +20 10 0152 4566","info@obourland.com / Sales@obourland.com / m.export@obourland.com",[0,0,0,0,0,1,1,0,0]],
+      ["4. Obour, Badr & Qalyubia","Obour City","Al Shahin for Food (Fresh Farm)","130 St., Block 12003, 1st Ind. Zone, North Ext., Obour","Poultry, Meat & Seafood","Processed & Chilled Meat Manufacturing","+20 2 4489 0346 / +20 10 2450 0036","info@freshfarmgroup.com",[0,0,0,1,0,1,1,0,1]],
+      ["4. Obour, Badr & Qalyubia","Qalyubia","Atyab (Meatland / Agthia Group)","Cairo/Qalyubia Factory Site","Poultry, Meat & Seafood","Frozen Processed Poultry & Beef","01125039649 / 01022192900","@atyab-foods.com",[0,0,0,1,0,1,1,0,1]],
+      ["4. Obour, Badr & Qalyubia","Qalyubia (Sindion)","The United Co. for Food Ind. (Montana)","Km 20 Cairo-Alex Agricultural Rd., Kalma, Sindion","IQF Frozen & Agri Export","IQF Frozen Vegetables & Fruits","+20 2 3337 5408 / +20 11 4889 9099","rasha@montanaeg.com",[0,1,0,1,0,1,0,0,0]],
+      ["4. Obour, Badr & Qalyubia","Qalyubia (Qanater)","Haboba Family (Rehana)","Dar Elkotob, Al Qanater Al Khayria (Office: Nasr City)","Flour, Sugar, Rice & Pasta","Rice, Legumes, Sugar, Flour & Spices","+20 102 434 9184 / +20 102 535 3088","h.bayoumy@rehanaproducts.com",[0,1,0,0,1,1,0,0,0]],
+      ["4. Obour, Badr & Qalyubia","Obour City","Solo Sauce","Industrial Zone B.G., Obour City","Snacks, Confectionery & Dry Food","Sauces, Condiments & Dressings","+20 100 229 9067","info@solo-sauce.com",[0,0,0,0,0,1,1,1,0]],
+      ["4. Obour, Badr & Qalyubia","Obour City","Ayman Shahin for Export","100 Industrial Zone, Obour City","Flour, Sugar, Rice & Pasta","Confectionery, Beans & Beverages","+20 101 611 1141","export@asgeg.com",[0,1,0,0,1,1,0,0,0]],
+      ["4. Obour, Badr & Qalyubia","Obour City","Alhossam Co. (Egypro)","P.O. Box 53, Obour City","IQF Frozen & Agri Export","Spring Onions, Beans, Onions & Grapes Export","02 4478 7398 / +20 100 671 8384","Info@egy-pro.com",[0,1,0,0,0,0,0,1,0]],
+      ["4. Obour, Badr & Qalyubia","Obour City","Executive Body of Obour Market","Obour Wholesale Market, Obour City","HoReCa & B2B Distributors","Wholesale Produce, Fish & Meat Market","+20 2 4477 0153","info@obourmarket.org.eg",[0,1,1,0,0,0,0,1,1]],
+      ["4. Obour, Badr & Qalyubia","Badr City","King M Egypt","Area 32/3, 3rd Industrial Zone, Badr City","IQF Frozen & Agri Export","Food & Frozen Produce Manufacturing","+20 2 2412 1017 / +20 2 2860 6124","info@kingmegypt.com",[0,1,0,1,0,1,0,0,0]],
+      ["4. Obour, Badr & Qalyubia","Badr City","Mano Egypt (Mano Food)","Piece 118, Km 47 Cairo-Suez Rd., East El Roubiky, Badr","IQF Frozen & Agri Export","IQF Frozen Fruits, Vegetables & Agri-Food","+20 122 983 7777","export.manager@manoegypt.com",[0,1,0,1,0,1,0,0,0]],
+      ["4. Obour, Badr & Qalyubia","Badr City","United Food Industries (Bianco)","El Robeky Rd., Badr City","Snacks, Confectionery & Dry Food","Food & Confectionery Manufacturing","+20 2 2864 0610 / +20 2 2864 0620","Export Dept (FEC Registry)",[0,0,0,0,0,1,1,0,0]],
+
+      // REGION 5: ALEXANDRIA & NEW BORG EL ARAB (16)
+      ["5. Alexandria & Borg El Arab","Alexandria (Borg El Arab)","Faragalla Group","Block 25, 1st Ind. Zone, New Borg El Arab & 36 Kafr Abdo","Poultry, Meat & Seafood","Frozen Meat, Poultry, Vegetables, Baked Goods & Juice","+20 3 5450 200 / +20 3 4592 043 / 01223130500","info@faragalla.com / import@faragalla.com / export@faragalla.com",[0,1,0,1,0,1,1,1,1]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Smouha)","Givrex (Robert Mansour & Co.)","Givrex Bldg, St. 38, Smouha, Alexandria","IQF Frozen & Agri Export","IQF Frozen Vegetables, Fruits & Culinary Pastes","+20 3 424 4000 / +20 3 427 2666","info@givrex.com / givrex@dataxprs.com.eg",[0,1,0,1,0,1,1,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Borg El Arab)","Dreem Mashreq Foods","Block 6, 4th Ind. Zone, Borg El Arab & Smouha","Snacks, Confectionery & Dry Food","Baking Mixes, Jelly, Whipping Cream & Dry Foods","+20 3 419 6670 / +20 3 425 2944 / +20 100 092 0892","info@dreem.com.eg",[0,1,0,0,1,1,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Sidi Gaber)","Sakr Group for Industries","23 Ibn Maged St., Sidi Gaber & Borg El Arab Plants","Dairy & Cheese","Cheese, Dairy, Juices, Creamers & Foodservice","+20 3 523 2136 / +20 3 546 2890 / +20 114 500 0180","info@sakrgroup.net / esraa.othman@sakrgroup.net / export@sakrgroup.net",[0,1,0,0,0,1,1,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Borg El Arab)","Egyptian Swiss Group for Pasta & Milling","1st / 4th Ind. Zone, New Borg El Arab & 10th of Ramadan","Flour, Sugar, Rice & Pasta","Pasta, Flour Milling & Tomato Paste","+20 2 2634 9538 / +20 3 463 0387","Export Dept (FEC Registry)",[0,1,0,0,1,1,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria","Alexandria Flour Mills & Bakeries","Alexandria","Flour, Sugar, Rice & Pasta","Industrial Flour Milling & Pasta/Bakery","+20 3 486 9128","alex@alexflourmills.com",[0,1,0,0,1,0,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Moharram Bey)","Alexandria Rice Mills","Moharram Bey, Alexandria","Flour, Sugar, Rice & Pasta","Rice Milling, Macaroni & Seeds","+20 3 492 4876","Registry",[0,1,0,0,1,0,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria","Elsabah for Food Industries","13 St. Zaky Ragab, Alexandria","Snacks, Confectionery & Dry Food","Canned & Packaged Food Processing","+20 110 202 4124","mohamed.sorour@elsabah.net",[0,0,0,0,1,1,1,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Smouha)","Fathalla Gomla Market","Al Souq Al Togary Bldg, Smouha, Alexandria","Supermarkets & Retail","Hypermarket & Wholesale Grocery Chain","+20 3 425 4082 / +20 10 9278 1888","fathalla.markets.1948@gmail.com / fathalla.alaa@yahoo.com",[1,0,1,1,1,1,1,1,1]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Smouha/Zezenia)","Zahran Market","31 Victor Emanuel St., Smouha / 34 Ahmed Yehia, Zezenia","Supermarkets & Retail","Supermarket Chain (Alexandria & North Coast)","19866 / 01555668800 / 03 585 3388","Portal",[0,0,1,0,0,0,1,1,1]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Abu Qir)","Abu Qir Fertilizers Company (AFC)","El-Tabia, Rashid Rd., Alexandria","Fertilizers, Salt & Chemicals","Nitrogen Fertilizers (Urea & Ammonium Nitrate)","+20 3 560 3053 / +20 3 560 3054","walid.abdou@abuqir.com",[0,1,0,0,0,0,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Amreya)","Sidi Kerir Petrochemicals Co. (SIDPEC)","Km 36, Alex-Cairo Desert Hwy, Amreya","Fertilizers, Salt & Chemicals","Polyethylene Resin & Petrochemicals","+20 3 477 0133 / +20 2 2181 3663","Corporate Switchboard",[0,1,0,0,0,0,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Dekheila)","Solvay Alexandria Sodium Carbonate","El-Max, Dekheila, Alexandria","Fertilizers, Salt & Chemicals","Soda Ash & Industrial Chemicals","+20 3 221 4000","laila.elghazaly@solvay.com",[0,1,0,0,0,0,0,0,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Azarita)","Agroland Egypt","24 El Iskander El Akbar St., Azarita, Alexandria","IQF Frozen & Agri Export","Citrus & Fresh Fruit Exporter","+20 3 487 7004 / +20 127 112 0020","info@agroland-egypt.com / marketing@agroland-egypt.com",[0,1,0,0,0,0,0,1,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (Shallalat)","Egast Group","116 Hurrya Rd., Shallalat, Alexandria","IQF Frozen & Agri Export","Fresh Agricultural Produce Exporter","+20 109 967 6661","muhammad@egast-eg.com / nancy@egast-eg.com",[0,1,0,0,0,0,0,1,0]],
+      ["5. Alexandria & Borg El Arab","Alexandria (El Shatby)","Agro Alex Group","27-B Algeish Rd., El Shatby, Alexandria","IQF Frozen & Agri Export","Potatoes, Oranges, Onions, Garlic & Grapes Export","+20 128 250 0500","aelbessoumy@agroalexgroup.com",[0,1,0,0,0,0,0,1,0]],
+
+      // REGION 6: NILE DELTA GOVERNORATES (7)
+      ["6. Nile Delta Governorates","Sadat City (Menoufia)","Regina for Pasta & Food Industries","2nd Industrial Zone, Sadat City, Menoufia","Flour, Sugar, Rice & Pasta","Pasta Manufacturing & Durum Milling (18k+ MT/yr)","+20 48 260 0138","info@pastaregina.com",[0,1,0,0,1,1,0,0,0]],
+      ["6. Nile Delta Governorates","Quesna (Menoufia)","Egypt Foods Group (Tiger)","Quesna Industrial Zone, Menoufia","Snacks, Confectionery & Dry Food","Potato Chips, Corn Snacks & Confectionery","+20 48 259 0050","Export Dept (FEC Registry)",[0,1,0,0,0,1,0,0,0]],
+      ["6. Nile Delta Governorates","Kafr El Zayat (Gharbia)","Egyptian Financial & Industrial Co. (EFIC)","51 Ahmed Maher St., Kafr El Zayat (Office: New Cairo)","Fertilizers, Salt & Chemicals","Phosphate Fertilizers & Chemicals","040 254 2515 / +20 2 2813 8352","efic@efic-eg.com / solimanazab.ex@efic-eg.com",[0,1,0,0,0,0,0,0,0]],
+      ["6. Nile Delta Governorates","Tanta (Gharbia)","Middle & West Delta Flour Mills","Tanta, Gharbia","Flour, Sugar, Rice & Pasta","Flour Milling, Pasta & Bakeries","+20 40 329 7952","middle_westflourmill@yahoo.com",[0,1,0,0,1,0,0,0,0]],
+      ["6. Nile Delta Governorates","Desouk (Kafr El Sheikh)","Green Fields Dairy","El Mandora, Desouk, Kafr El Sheikh","Dairy & Cheese","Dairy & Cheese Processing","+20 100 215 8557","m.abdelhady@greenfields.com.eg",[0,0,0,0,0,1,1,0,0]],
+      ["6. Nile Delta Governorates","Beheira","Albadr for Investments (Frozena)","Beheira Governorate","IQF Frozen & Agri Export","IQF Frozen Vegetables & Fruits","+20 45 355 2100 / 045 355 2101","FEC Registry",[0,1,0,1,0,1,0,0,0]],
+      ["6. Nile Delta Governorates","Abou El Matamir (Beheira)","Abdelwahab Sons","Km 54 Alex-Cairo Desert Rd., Abou El Matamir","IQF Frozen & Agri Export","Citrus & Fresh Fruit Packhouse/Exporter","+20 100 319 8888 / +20 100 058 0602","abdelwahab.fruit@yahoo.com",[0,1,0,0,0,0,0,1,0]],
+
+      // REGION 7: SUEZ CANAL & DAMIETTA HUBS (7)
+      ["7. Suez Canal & Damietta","Suez (Attaqa)","Five Star Flour Mills Co. S.A.E.","Attaqa Industrial Zone, Gulf of Suez","Flour, Sugar, Rice & Pasta","Industrial Flour & Semolina Milling","+20 62 323 0552","fsfs@fivestar.com.eg / @fivestar.com.eg",[0,1,0,0,1,1,0,0,0]],
+      ["7. Suez Canal & Damietta","Damietta","Misr Fertilizers Production Co. (MOPCO)","Plot 52 & 53A, Damietta Public Free Zone (HQ: New Cairo)","Fertilizers, Salt & Chemicals","Urea & Nitrogen Fertilizers","+20 57 229 2061 / +20 2 2673 1156","ceo@mopco-eg.com",[0,1,0,0,0,0,0,0,0]],
+      ["7. Suez Canal & Damietta","New Damietta","Halayeb Co. for Dairy Products & Juice","Industrial Zone, New Damietta","Dairy & Cheese","White Cheese, Roumy Cheese, Dairy & Juice","+20 57 240 9911 / +20 57 240 9933","halayeb@halayeb.com",[0,0,0,0,0,1,1,1,0]],
+      ["7. Suez Canal & Damietta","Damietta","Misr Italy for Pasta & Food Industries","Damietta Industrial Zone","Flour, Sugar, Rice & Pasta","Pasta & Macaroni Manufacturing","+20 57 240 9100","Export Dept (Mohammad Abdel Wahab)",[0,1,0,0,1,1,0,0,0]],
+      ["7. Suez Canal & Damietta","Damietta","National Cooling & Freezing Co. (CAFCO)","Damietta","IQF Frozen & Agri Export","IQF Frozen Vegetables & Cold Storage","+20 57 366 1101 / +20 57 366 1202","FEC Registry",[0,1,0,1,0,1,0,0,0]],
+      ["7. Suez Canal & Damietta","Port Said","Port Said Co. (Soudan Co.)","Industrial Zone, South Port Said, Block 50/51","Dairy & Cheese","Dairy & Food Processing","+20 100 347 9995 / +20 66 377 2074","howayda.darwish@soudanco.com",[0,0,0,0,0,1,1,0,0]],
+      ["7. Suez Canal & Damietta","Ismailia (Serabium)","Ismailia Misr Poultry Co.","Suez Desert Rd., Serabium, Ismailia","Poultry, Meat & Seafood","Poultry Slaughtering (10M birds/yr), Eggs & Feed","+20 122 329 4086","ahmed.wafek@gmail.com",[0,1,0,1,0,0,0,0,1]],
+
+      // REGION 8: FAYOUM & UPPER EGYPT (3)
+      ["8. Fayoum & Upper Egypt","Fayoum (Abshway)","EMISAL (Egyptian Minerals & Salts Co.)","Shakshouk, Abshway, Fayoum (Cairo Office: Dokki)","Fertilizers, Salt & Chemicals","Edible Salt, Vacuum Salt & Sodium Sulfate (350k+ MT/yr)","01080852528 / 01002104119 / 02 3338 7663","sales@emisalsalts.com",[0,1,0,0,0,1,0,0,0]],
+      ["8. Fayoum & Upper Egypt","Beni Suef","Angel Yeast Egypt Co. Ltd.","Beni Suef Industrial Zone","Snacks, Confectionery & Dry Food","Dry Yeast & Yeast Extract Manufacturing","Corporate Registry","gaolu@angelyeast.com / aie@angelyeast.com",[0,1,0,0,0,1,0,0,0]],
+      ["8. Fayoum & Upper Egypt","Beni Suef","Upper Egypt for Food Industries (UEFFI)","Plots 239–242, Food Ind. Zone, Beni Suef (HQ: Heliopolis)","IQF Frozen & Agri Export","IQF Frozen Fruits & Vegetables","Corporate Registry","Portal (gulfood.com Exhibitor)",[0,1,0,1,0,1,0,0,0]]
+    ];
+
+    let filteredLeads = [...RAW_LEADS];
+
+    const tbody = document.getElementById("leads-tbody");
+    const searchEl = document.getElementById("filter-search");
+    const regionEl = document.getElementById("filter-region");
+    const sectorEl = document.getElementById("filter-sector");
+    const contactEl = document.getElementById("filter-contact");
+    const prodChks = Array.from(document.querySelectorAll(".prod-chk"));
+    const matchRadios = Array.from(document.querySelectorAll("input[name='match-mode']"));
+
+    function renderCellCheck(val, colorClass) {
+      return val === 1
+        ? `<span class="inline-flex items-center justify-center w-5 h-5 rounded font-bold text-[11px] ${colorClass}">✔</span>`
+        : `<span class="text-slate-300">-</span>`;
+    }
+
+    function applyFilters() {
+      const q = searchEl.value.toLowerCase().trim();
+      const reg = regionEl.value;
+      const sec = sectorEl.value;
+      const con = contactEl.value;
+      const selectedProds = prodChks.filter(c => c.checked).map(c => parseInt(c.value, 10));
+      const matchMode = document.querySelector("input[name='match-mode']:checked").value;
+
+      filteredLeads = RAW_LEADS.filter((row) => {
+        const [rHub, city, name, addr, sGroup, sDesc, phone, email, p] = row;
+
+        if (reg !== "ALL" && rHub !== reg) return false;
+        if (sec !== "ALL" && sGroup !== sec) return false;
+        if (con === "EMAIL" && !email.includes("@")) return false;
+        if (con === "HOTLINE" && !/\b1[5679]\d{3}\b/.test(phone)) return false;
+
+        if (q) {
+          const hay = `${city} ${name} ${addr} ${sGroup} ${sDesc} ${phone} ${email}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+
+        if (selectedProds.length > 0) {
+          if (matchMode === "ANY") {
+            if (!selectedProds.some(idx => p[idx] === 1)) return false;
+          } else {
+            if (!selectedProds.every(idx => p[idx] === 1)) return false;
+          }
+        }
+        return true;
+      });
+
+      renderTable();
+      updateKPIs();
+    }
+
+    function updateKPIs() {
+      document.getElementById("kpi-matching").textContent = filteredLeads.length;
+      for (let i = 0; i < 9; i++) {
+        const count = filteredLeads.reduce((acc, r) => acc + (r[8][i] === 1 ? 1 : 0), 0);
+        document.getElementById(`kpi-p${i}`).textContent = count;
+      }
+    }
+
+    function renderTable() {
+      if (filteredLeads.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="16" class="py-10 text-center text-slate-500">No leads match the current filter combination. Click "Reset All Filters" to restore all 184 accounts.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filteredLeads.map((row, idx) => {
+        const [rHub, city, name, addr, sGroup, sDesc, phone, email, p] = row;
+        return `
+          <tr class="hover:bg-blue-50/40 cursor-pointer transition" onclick="openModal(${idx})">
+            <td class="py-2.5 px-2.5 text-center font-bold text-slate-400">${idx + 1}</td>
+            <td class="py-2.5 px-3">
+              <div class="font-bold text-slate-800">${city}</div>
+              <div class="text-[10px] text-slate-500">${rHub.replace(/^\d+\.\s*/, '')}</div>
+            </td>
+            <td class="py-2.5 px-3 font-bold text-slate-900">${name}</td>
+            <td class="py-2.5 px-3 text-slate-600">${addr}</td>
+            <td class="py-2.5 px-3">
+              <span class="inline-block px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[10px]">${sGroup}</span>
+              <div class="text-[10px] text-slate-500 mt-0.5">${sDesc}</div>
+            </td>
+            <td class="py-2.5 px-3 font-mono font-semibold text-blue-700">${phone}</td>
+            <td class="py-2.5 px-3 font-mono text-[11px] text-slate-700 break-all">${email}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[0], "bg-pink-100 text-pink-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[1], "bg-indigo-100 text-indigo-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[2], "bg-amber-100 text-amber-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[3], "bg-cyan-100 text-cyan-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[4], "bg-orange-100 text-orange-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[5], "bg-blue-100 text-blue-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[6], "bg-teal-100 text-teal-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[7], "bg-emerald-100 text-emerald-800")}</td>
+            <td class="py-2.5 px-1.5 text-center">${renderCellCheck(p[8], "bg-purple-100 text-purple-800")}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    window.openModal = function(idx) {
+      const row = filteredLeads[idx];
+      if (!row) return;
+      const [rHub, city, name, addr, sGroup, sDesc, phone, email, p] = row;
+      document.getElementById("m-region").textContent = `${rHub} • ${city}`;
+      document.getElementById("m-name").textContent = name;
+      document.getElementById("m-sector").textContent = `${sGroup} — ${sDesc}`;
+      document.getElementById("m-address").textContent = addr;
+      document.getElementById("m-phone").textContent = phone;
+      document.getElementById("m-email").textContent = email;
+
+      const prodContainer = document.getElementById("m-products");
+      prodContainer.innerHTML = PRODUCT_NAMES.map((pName, i) => {
+        if (p[i] === 1) {
+          return `<span class="px-2.5 py-1 rounded-md border text-xs font-bold ${PRODUCT_BADGE_COLORS[i]}">✔ ${pName}</span>`;
+        }
+        return "";
+      }).join("");
+
+      const modal = document.getElementById("lead-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    document.getElementById("m-close").addEventListener("click", () => {
+      const modal = document.getElementById("lead-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    });
+
+    document.getElementById("lead-modal").addEventListener("click", (e) => {
+      if (e.target.id === "lead-modal") {
+        e.target.classList.add("hidden");
+        e.target.classList.remove("flex");
+      }
+    });
+
+    // Event Listeners
+    [searchEl, regionEl, sectorEl, contactEl, ...prodChks, ...matchRadios].forEach(el => {
+      el.addEventListener("input", applyFilters);
+      el.addEventListener("change", applyFilters);
+    });
+
+    document.getElementById("btn-clear-products").addEventListener("click", () => {
+      prodChks.forEach(c => c.checked = false);
+      applyFilters();
+    });
+
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      searchEl.value = "";
+      regionEl.value = "ALL";
+      sectorEl.value = "ALL";
+      contactEl.value = "ALL";
+      prodChks.forEach(c => c.checked = false);
+      matchRadios[0].checked = true;
+      applyFilters();
+    });
+
+    // CSV Export
+    document.getElementById("btn-export").addEventListener("click", () => {
+      const headers = [
+        "Region Hub", "City / Location", "Company Name", "District / Address",
+        "Sector Category", "Primary Sector Description", "Phone / Hotline", "Email / Contact Channel",
+        ...PRODUCT_NAMES
+      ];
+      const csvRows = [headers.join(",")];
+      filteredLeads.forEach(r => {
+        const [rHub, city, name, addr, sGroup, sDesc, phone, email, p] = r;
+        const rowData = [
+          `"${rHub}"`, `"${city}"`, `"${name.replace(/"/g, '""')}"`, `"${addr.replace(/"/g, '""')}"`,
+          `"${sGroup}"`, `"${sDesc.replace(/"/g, '""')}"`, `"${phone}"`, `"${email.replace(/"/g, '""')}"`,
+          ...p.map(v => v === 1 ? "Yes" : "No")
+        ];
+        csvRows.push(rowData.join(","));
+      });
+      const blob = new Blob(["\uFEFF" + csvRows.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Egypt_Packaging_B2B_Leads_${filteredLeads.length}_Accounts.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Initial Render
+    applyFilters();
+  </script>
+</body>
+</html>
